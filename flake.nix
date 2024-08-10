@@ -28,7 +28,7 @@
           services.vscode-server.enableFHS = true;
         })
 
-        ({ pkgs, fenix, ... }: {
+        ({ pkgs, ... }: {
           nixpkgs.overlays = [ fenix.overlays.default ];
           environment.systemPackages = with pkgs; [
             (fenix.complete.withComponents [
