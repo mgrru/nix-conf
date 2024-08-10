@@ -12,7 +12,7 @@
     };
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
-  outputs = { self, fenix, nixpkgs, vscode-server }: {
+  outputs = { self, fenix, nixpkgs, vscode-server, ... }@inputs: {
     packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
     nixosConfigurations.rnix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -28,7 +28,7 @@
           services.vscode-server.enableFHS = true;
         })
 
-        ({ pkgs, ... }: {
+        ({ pkgs, fenix, ... }: {
           nixpkgs.overlays = [ fenix.overlays.default ];
           environment.systemPackages = with pkgs; [
             (fenix.complete.withComponents [
@@ -38,7 +38,7 @@
               "rustc"
               "rustfmt"
             ])
-            rust-analyzer-nightly
+            rust-analyzer
           ];
         })
       ];
