@@ -8,9 +8,10 @@
   '';
   programs.bash.shellAliases = {
     sudo = "sudo ";
-    ls = "ls -F";
+    ls = "ls -F --color=auto";
     la = "ls -aF";
     ll = "ls -alF";
+    grep = "grep --color=auto";
   };
   programs.bash.promptInit = ''
     clear_color="\e[0m"
@@ -58,6 +59,6 @@
 
       echo $left_str$user_str$at_str$hostname_str$right_str
     }
-    PS1="$(get_os_name)$(get_user_name)$(get_git_branch)$(get_workspace) \e[37;2m=> 󰅒 \t =>  \s:\v$clear_color\n"
+    PROMPT_COMMAND='PS1="$(get_os_name)$(get_user_name)$(get_git_branch)$(get_workspace) \e[37;2m=> 󰅒 \t =>  \s:\v$clear_color\n"'
   '';
 }
