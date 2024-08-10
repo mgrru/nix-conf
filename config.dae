@@ -31,7 +31,7 @@ dns {
 
   routing {
     request {
-      qname(geosite:cn) ->pubdns
+      qname(geosite:cn) -> pubdns
       fallback: googledns
     }
 
