@@ -24,7 +24,7 @@
     enable = true;
     package = pkgs.nodePackages.pnpm;
     npmrc = ''
-      prefix = ''${HOME}/.npm
+      prefix = ''${HOME}/.pnpm
       init-license=MIT
       init-author-url=https://registry.npmmirror.com
       color=true
