@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 
 {
   networking.hostName = "rnix"; # Define your hostname.

@@ -25,6 +25,7 @@
         ./user-conf.nix
         ./network.nix
         ./docker.nix
+        ./bash.nix
 
         vscode-server.nixosModules.default
         ({ config, pkgs, ... }: {
