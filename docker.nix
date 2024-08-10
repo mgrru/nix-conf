@@ -11,4 +11,13 @@
     };
     storageDriver = "btrfs";
   };
+
+  virtualisation.oci-containers = {
+  backend = "docker";
+  containers = {
+    foo = {
+      # ...
+    };
+  };
+};
 }
