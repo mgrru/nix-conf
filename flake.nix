@@ -22,6 +22,7 @@
         ./configuration.nix
         ./ssh.nix
         ./user-conf.nix
+        ./network.nix
 
         vscode-server.nixosModules.default
         ({ config, pkgs, ... }: {

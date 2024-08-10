@@ -15,6 +15,7 @@
       wget
       curl
       neofetch
+      nixfmt
     ];
   };
 }
