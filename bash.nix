@@ -1,8 +1,7 @@
 { ... }:
 
 {
-  programs.bash.promptInit = ''
-    # Provide a nice prompt if the terminal supports it.
+  programs.bash.shellInit = ''
     clear_color="\e[0m"
     # 设置打印皮肤
     get_os_name() {
@@ -49,6 +48,9 @@
 
       echo $left_str$user_str$at_str$hostname_str$right_str
     }
+  '';
+  programs.bash.promptInit = ''
+    # Provide a nice prompt if the terminal supports it.
     PS1="$(get_os_name)$(get_user_name)$(get_git_branch)$(get_workspace) \e[37;2m=> 󰅒 \t =>  \s:\v$clear_color\n"'
   '';
 }
