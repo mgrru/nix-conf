@@ -30,7 +30,7 @@
         ({ pkgs, ... }: {
           nixpkgs.overlays = [ fenix.overlays.default ];
           environment.systemPackages = with pkgs; [
-            (fenix.minimal.withComponents [
+            (fenix.default.withComponents [
               "cargo"
               "clippy"
               "rust-src"
