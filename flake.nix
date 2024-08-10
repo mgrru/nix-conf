@@ -31,14 +31,14 @@
         ({ pkgs, ... }: {
           nixpkgs.overlays = [ fenix.overlays.default ];
           environment.systemPackages = with pkgs; [
-            (fenix.minimal.withComponents [
-              cargo
-              clippy
-              rust-src
-              rustc
-              rustfmt
-              rust-analyzer
+            (fenix.complete.withComponents [
+              "cargo"
+              "clippy"
+              "rust-src"
+              "rustc"
+              "rustfmt"
             ])
+            rust-analyzer
           ];
         })
       ];
