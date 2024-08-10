@@ -13,7 +13,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
   outputs = { self, nixpkgs, vscode-server, fenix, ... }@inputs: {
-    # packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
+    packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
     nixosConfigurations.rnix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -37,8 +37,8 @@
               "rust-src"
               "rustc"
               "rustfmt"
-              "rust-analyzer"
             ])
+            rust-analyzer
           ];
         })
       ];
