@@ -5,10 +5,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   virtualisation.virtualbox.guest.enable = true;
   # Use the systemd-boot EFI boot loader.
@@ -74,7 +73,6 @@
   #   sddm
   # ];
 
-
   programs = {
     nano.enable = false;
     neovim = {
@@ -93,24 +91,16 @@
     lfs.enable = true;
     # userName = "ru";
     # userEmail = "ru@fufu.moe";
-    config = [
-      {
-        init = {
-          defaultBranch = "main";
-        };
-        user = {
-          name = "ru";
-          email = "ru@fufu.moe";
-          signingkey = "~/.ssh/id_ed25519";
-        };
-        commit = {
-          gpgsign = true;
-        };
-        gpg = {
-          format = "ssh";
-        };
-      }
-    ];
+    config = [{
+      init = { defaultBranch = "main"; };
+      user = {
+        name = "ru";
+        email = "ru@fufu.moe";
+        signingkey = "~/.ssh/id_ed25519";
+      };
+      commit = { gpgsign = true; };
+      gpg = { format = "ssh"; };
+    }];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -121,9 +111,9 @@
   #   enableSSHSupport = true;
   # };
 
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+  nix.settings.substituters =
+    [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ 22 ];
