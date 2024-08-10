@@ -1,0 +1,23 @@
+{
+  description = "ru flake";
+  inputs = {
+    nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable/nixexprs.tar.xz";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
+  };
+  outputs = { self, nixpkgs, vscode-server, ... }@inputs: {
+    nixosConfigurations.rnix = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        # 这里导入之前我们使用的 configuration.nix，
+        # 这样旧的配置文件仍然能生效
+        ./configuration.nix
+
+	vscode-server.nixosModules.default
+	({ config, pkgs, ... }: {
+          services.vscode-server.enable = true;
+	  services.vscode-server.enableFHS = true;
+	})
+      ];
+    };
+  };
+}

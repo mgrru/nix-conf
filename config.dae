@@ -1,0 +1,68 @@
+global {
+  wan_interface: auto
+  log_level: info
+  allow_insecure: false
+  auto_config_kernel_parameter: true
+
+  tcp_check_url: 'http://cp.cloudflare.com,1.1.1.1,2606:4700:4700::1111'
+  tcp_check_http_method: HEAD
+
+  udp_check_dns: 'dns.google.com:53,8.8.8.8,2001:4860:4860::8888'
+
+  check_interval: 30s
+
+  check_tolerance: 50ms
+
+  dial_mode: domain
+
+  sniffing_timeout: 100ms
+}
+
+subscription {
+  sub1: 'https://66a4d1.xfxcloud.click/api/v1/client/subscribe?token=5a81455c3edb4e421280b26b007f5c40'
+}
+
+dns {
+  upstream {
+    googledns: 'tcp+udp://8.8.8.8:53'
+    pubdns: 'udp://114.114.114.114:53'
+    alidns: 'udp://dns.alidns.com:53'
+  }
+
+  routing {
+    request {
+      qname(geosite:cn) ->pubdns
+      fallback: googledns
+    }
+
+
+#    request {
+#      fallback: googledns
+#    }
+#    response {
+#      upstream(googledns) -> accept
+#      ip(geoip:private) && !qname(geosite:cn) -> googledns
+#      fallback: accept
+#    }
+  }
+}
+
+group {
+  proxy {
+    filter: subtag(sub1) && !name(keyword: 'ExpireAt:')
+    policy: min_moving_avg
+  }
+}
+
+routing {
+  pname(NetworkManager) -> direct
+  dip(224.0.0.0/3, 'ff00::/8') -> direct
+
+
+  l4proto(udp) && dport(443) -> block
+  dip(geoip:private) -> direct
+  dip(geoip:cn) -> direct
+  domain(geosite:cn) -> direct
+
+  fallback: proxy
+}
