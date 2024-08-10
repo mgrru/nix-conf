@@ -2,8 +2,16 @@
 
 {
   programs.bash.shellInit = ''
-
+    # rust代理
+    export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+    export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
   '';
+  programs.bash.shellAliases = {
+    sudo = "sudo ";
+    ls = "ls -F";
+    la = "ls -aF";
+    ll = "ls -alF";
+  };
   programs.bash.promptInit = ''
     clear_color="\e[0m"
     get_os_name() {
@@ -50,6 +58,6 @@
 
       echo $left_str$user_str$at_str$hostname_str$right_str
     }
-    PS1="$(get_os_name)$(get_user_name)$(get_git_branch)$(get_workspace) \e[37;2m=> 󰅒 \t =>  \s:\v$clear_color\n"'
+    PS1="$(get_os_name)$(get_user_name)$(get_git_branch)$(get_workspace) \e[37;2m=> 󰅒 \t =>  \s:\v$clear_color\n"
   '';
 }
