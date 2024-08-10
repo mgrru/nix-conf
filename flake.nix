@@ -1,7 +1,7 @@
 {
   description = "ru flake";
   inputs = {
-    nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable/nixexprs.tar.xz";
+    # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable/nixexprs.tar.xz";
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -10,6 +10,7 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs.url = "nixpkgs/nixos-unstable";
   };
   outputs = { self, nixpkgs, vscode-server, fenix, ... }@inputs: {
     packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
