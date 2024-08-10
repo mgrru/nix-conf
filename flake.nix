@@ -12,7 +12,7 @@
     };
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
-  outputs = { self, nixpkgs, vscode-server, fenix, ... }@inputs: {
+  outputs = { self, nixpkgs, vscode-server, fenix }: {
     packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
     nixosConfigurations.rnix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
