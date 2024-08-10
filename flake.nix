@@ -26,6 +26,7 @@
         ./network.nix
         ./docker.nix
         ./bash.nix
+        ./global-pkgs.nix
 
         vscode-server.nixosModules.default
         ({ config, pkgs, ... }: {
