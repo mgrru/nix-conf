@@ -101,19 +101,19 @@
       wget
       curl
       neofetch
-      rustup
-      clang
+      # rustup
+      # clang
     ];
   };
 
-  services = {
-    displayManager = {
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-      };
-    };
-  };
+  # services = {
+  #   displayManager = {
+  #     sddm = {
+  #       enable = true;
+  #       wayland.enable = true;
+  #     };
+  #   };
+  # };
 
   programs = {
     nano.enable = false;
