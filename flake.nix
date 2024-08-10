@@ -28,17 +28,18 @@
           services.vscode-server.enableFHS = true;
         })
 
-        ({ pkgs, ... }: {
+        fenix.nixosModules.default
+        ({ config, pkgs, ... }: {
           nixpkgs.overlays = [ fenix.overlays.default ];
           environment.systemPackages = with pkgs; [
-            (fenix.withComponents [
+            (fenix.minimal.withComponents [
               "cargo"
               "clippy"
               "rust-src"
               "rustc"
               "rustfmt"
+              "rust-analyzer"
             ])
-            rust-analyzer
           ];
         })
       ];
