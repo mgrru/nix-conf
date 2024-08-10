@@ -21,6 +21,7 @@
         # 这样旧的配置文件仍然能生效
         ./configuration.nix
         ./ssh.nix
+        ./user-conf.nix
 
         vscode-server.nixosModules.default
         ({ config, pkgs, ... }: {

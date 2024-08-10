@@ -63,9 +63,6 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
-  
-
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -88,33 +85,6 @@
   #   sddm
   # ];
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ru = {
-    isNormalUser = true;
-    description = "ru";
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMGDMgOItE9fReXLvuhCawIzjuy2fqTghEJQxINMdkEE ru@fufu.moe"
-    ];
-    packages = with pkgs; [
-      openssh
-      openssl
-      wget
-      curl
-      neofetch
-      # rustup
-      # clang
-    ];
-  };
-
-  # services = {
-  #   displayManager = {
-  #     sddm = {
-  #       enable = true;
-  #       wayland.enable = true;
-  #     };
-  #   };
-  # };
 
   programs = {
     nano.enable = false;
@@ -136,28 +106,23 @@
     # userEmail = "ru@fufu.moe";
     config = [
       {
-          init = {
-            defaultBranch = "main";
-          };
-          user = {
-            name = "ru";
-            email = "ru@fufu.moe";
-            signingkey = "~/.ssh/id_ed25519";
-          };
-          commit = {
-            gpgsign = true;
-          };
-          gpg = {
-            format = "ssh";
-          };
-
+        init = {
+          defaultBranch = "main";
+        };
+        user = {
+          name = "ru";
+          email = "ru@fufu.moe";
+          signingkey = "~/.ssh/id_ed25519";
+        };
+        commit = {
+          gpgsign = true;
+        };
+        gpg = {
+          format = "ssh";
+        };
       }
     ];
-
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -165,26 +130,6 @@
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh = {
-  #   enable = true;
-  #   settings = {
-  #     PermitRootLogin = "no";
-  #     PasswordAuthentication = false;
-  #   };
-  # };
-
-  # services.openvscode-server = {
-  #   user = "ru";
-  #   group = "wheel";
-  #   enable = true;
-  #   extraGroups = [ "docker" "networkmanager" ];
-  #   withoutConnectionToken = true;
-  #   package = pkgs.vscode-server;
   # };
 
 
@@ -199,7 +144,7 @@
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
+  system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
