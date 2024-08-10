@@ -13,11 +13,6 @@
   };
 
   virtualisation.oci-containers = {
-  backend = "docker";
-  containers = {
-    foo = {
-      # ...
-    };
+    backend = "docker";
   };
-};
 }
