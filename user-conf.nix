@@ -17,17 +17,8 @@
       jdk21_headless
       maven
       nodejs_20
+      nodePackages_latest.pnpm
+      pnpm-shell-completion
     ];
-  };
-
-  programs.npm = {
-    enable = true;
-    package = pkgs.nodePackages.pnpm;
-    npmrc = ''
-      prefix = ''${HOME}/.pnpm
-      init-license=MIT
-      init-author-url=https://registry.npmmirror.com
-      color=true
-    '';
   };
 }
