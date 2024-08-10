@@ -1,18 +1,18 @@
 {
   description = "ru flake";
   inputs = {
-    # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable/nixexprs.tar.xz";
+    nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable/nixexprs.tar.xz";
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    fenix = {
-      url = "github:nix-community/fenix";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    # nixpkgs.url = "nixpkgs/nixpkgs-unstable";
   };
-  outputs = { self, fenix, nixpkgs, vscode-server, ... }@inputs: {
+  outputs = { self, nixpkgs, vscode-server, rust-overlay, ... }@inputs: {
     packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
     nixosConfigurations.rnix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -28,19 +28,9 @@
           services.vscode-server.enableFHS = true;
         })
 
-        fenix.nixosModules.default
-        ({ config, pkgs, ... }: {
-          nixpkgs.overlays = [ fenix.overlays.default ];
-          environment.systemPackages = with pkgs; [
-            (fenix.minimal.withComponents [
-              "cargo"
-              "clippy"
-              "rust-src"
-              "rustc"
-              "rustfmt"
-              "rust-analyzer"
-            ])
-          ];
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [ rust-overlay.overlays.default ];
+          environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
         })
       ];
     };
