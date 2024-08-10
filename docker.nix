@@ -6,7 +6,7 @@
     daemon.settings = {
       ipv6 = true;
       log-driver = "json-file";
-      log-opts = "{\n        " max-size " : " 100 M "\n      }";
+      log-opts = { max-size = "100M"; };
       registry-mirrors = [ "https://docker.m.daocloud.io" ];
     };
     storageDriver = "btrfs";
