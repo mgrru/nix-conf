@@ -82,10 +82,10 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
-  environment.systemPackages = with pkgs; [
-    kdePackages.plasma-desktop
-    sddm
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   kdePackages.plasma-desktop
+  #   sddm
+  # ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ru = {
@@ -100,13 +100,9 @@
       openssl
       wget
       curl
-      cargo
-      rustc
-      rustfmt
-      rust-analyzer
       neofetch
+      rustup
       clang
-      wayland
     ];
   };
 
