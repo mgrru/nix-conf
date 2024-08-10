@@ -13,7 +13,6 @@
     # nixpkgs.url = "nixpkgs/nixpkgs-unstable";
   };
   outputs = { self, nixpkgs, vscode-server, rust-overlay, ... }@inputs: {
-    packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
     nixosConfigurations.rnix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
