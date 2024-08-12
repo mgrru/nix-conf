@@ -26,7 +26,7 @@ dns {
   upstream {
     trdns: 'udp://180.184.1.1:53'
     googledns: 'tcp+udp://8.8.8.8:53'
-    cfdns: 'udp://1.1.1.1:53'
+    cfdns: 'tcp+udp://1.1.1.1:53'
   }
 
   routing {
