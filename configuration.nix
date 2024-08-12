@@ -111,8 +111,8 @@
   # };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.substituters =
-    [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+  # nix.settings.substituters =
+  #   [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ 22 ];
