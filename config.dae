@@ -4,10 +4,10 @@ global {
   allow_insecure: false
   auto_config_kernel_parameter: true
 
-  tcp_check_url: 'https://cloudflare-dns.com/dns-query,1.1.1.1,2606:4700:4700::1111'
+  tcp_check_url: 'https://dns.adguard-dns.com/dns-query,94.140.14.14,2a10:50c0::ad1:ff'
   tcp_check_http_method: HEAD
 
-  udp_check_dns: '1dot1dot1dot1.cloudflare-dns.com,1.1.1.1,2606:4700:4700::1111'
+  udp_check_dns: '180.184.1.1'
 
   check_interval: 30s
 
@@ -25,14 +25,14 @@ subscription {
 dns {
   upstream {
     trdns: 'udp://180.184.1.1:53'
+    googledns: 'tcp+udp://8.8.8.8:53'
     cfdns: 'udp://1.1.1.1:53'
-    googledns: 'udp://8.8.8.8:53'
   }
 
   routing {
     request {
       qname(geosite:cn) -> trdns
-      fallback: cfdns
+      fallback: googledns
     }
 
 

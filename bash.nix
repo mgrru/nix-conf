@@ -12,6 +12,7 @@
     la = "ls -aF";
     ll = "ls -alF";
     grep = "grep --color=auto";
+    pn = "pnpm";
   };
   programs.bash.promptInit = ''
     clear_color="\e[0m"
