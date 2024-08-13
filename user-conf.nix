@@ -13,7 +13,7 @@
     packages = with pkgs; [
       tree
       neofetch
-      nixfmt-classic
+      nixfmt-rfc-style
       nil
       jdk21_headless
       maven
