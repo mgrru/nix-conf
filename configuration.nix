@@ -72,35 +72,8 @@
   #   sddm
   # ];
 
-  programs = {
-    nano.enable = false;
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
-      viAlias = true;
-    };
-  };
-
   # programs.hyprland.enable = true;
   # services.hypridle.enable = true;
-
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-    # userName = "ru";
-    # userEmail = "ru@fufu.moe";
-    config = [{
-      init = { defaultBranch = "main"; };
-      user = {
-        name = "ru";
-        email = "ru@fufu.moe";
-        signingkey = "~/.ssh/id_ed25519";
-      };
-      commit = { gpgsign = true; };
-      gpg = { format = "ssh"; };
-    }];
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

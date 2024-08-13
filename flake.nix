@@ -34,6 +34,9 @@
         ./docker.nix
         ./bash.nix
         ./global-pkgs.nix
+        ./npm.nix
+        ./editor.nix
+        ./git.nix
 
         vscode-server.nixosModules.default
         ({ config, pkgs, ... }: {
