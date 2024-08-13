@@ -36,17 +36,20 @@
         modules = [
           # 这里导入之前我们使用的 configuration.nix，
           # 这样旧的配置文件仍然能生效
-          ./configuration.nix
-          ./ssh.nix
-          ./user-conf.nix
-          ./network.nix
-          ./docker.nix
-          ./bash.nix
-          ./global-pkgs.nix
-          ./npm.nix
-          ./editor.nix
-          ./git.nix
-          ./dae.nix
+          ./sys-conf/configuration.nix
+          ./sys-conf/network.nix
+
+          ./services/ssh.nix
+          ./services/docker.nix
+          ./services/dae.nix
+
+          ./pkgs/user-conf.nix
+          ./pkgs/global-pkgs.nix
+
+          ./programs/bash.nix
+          ./programs/npm.nix
+          ./programs/editor.nix
+          ./programs/git.nix
 
           vscode-server.nixosModules.default
           (
