@@ -5,7 +5,8 @@
 { ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -83,7 +84,10 @@
   #   enableSSHSupport = true;
   # };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # nix.settings.substituters =
   #   [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
   # Open ports in the firewall.
@@ -117,4 +121,3 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
-
