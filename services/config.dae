@@ -5,7 +5,7 @@ global {
   allow_insecure: false
   auto_config_kernel_parameter: true
 
-  tcp_check_url: 'https://dns.adguard-dns.com/dns-query,94.140.14.14,2a10:50c0::ad1:ff'
+  tcp_check_url: 'http://cp.cloudflare.com'
   tcp_check_http_method: HEAD
 }
 
