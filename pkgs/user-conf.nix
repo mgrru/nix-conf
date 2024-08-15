@@ -18,7 +18,6 @@
       neofetch
       nixfmt-rfc-style
       nil
-      maven
       nodejs_20
       nodePackages_latest.pnpm
       pnpm-shell-completion
