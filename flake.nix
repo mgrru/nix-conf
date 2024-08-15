@@ -42,6 +42,7 @@
           ./services/ssh.nix
           ./services/docker.nix
           ./services/dae.nix
+          ./services/v2raya.nix
 
           ./pkgs/user-conf.nix
           ./pkgs/global-pkgs.nix
