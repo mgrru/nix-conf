@@ -1,9 +1,16 @@
 { ... }:
 
 {
-  networking.hostName = "rnix"; # Define your hostname.
+  networking = {
+    hostName = "rnix"; # Define your hostname.
+    networkmanager.enable = true;
+    firewall = {
+      allowedTCPPorts = [ 22 443 ];
+      allowedUDPPorts = [ 22 443 ];
+    };
+  };
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # Easiest to use and most distros use this by default.
-  networking.networkmanager.enable = true;
+
+  # networking.firewall.enable = false;
 }
