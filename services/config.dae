@@ -1,5 +1,5 @@
 global {
-  lan_interface: docker0, vboxnet0, enp0s3
+  # lan_interface: docker0, vboxnet0, enp0s3
   wan_interface: auto
   log_level: info
   allow_insecure: false
@@ -13,7 +13,7 @@ subscription {
 
 dns {
   upstream {
-    googledns: 'udp://8.8.8.8:53'
+    googledns: 'tcp+udp://8.8.8.8:53'
     cfdns: 'udp://1.1.1.1:53'
     trdns: 'udp://180.184.1.1:53'
   }
@@ -37,7 +37,7 @@ dns {
 
 group {
   proxy {
-    filter: subtag(sub2) && !name(keyword: 'ExpireAt:')
+    # filter: subtag(sub2) && !name(keyword: 'ExpireAt:')
     policy: min_moving_avg
   }
 }
