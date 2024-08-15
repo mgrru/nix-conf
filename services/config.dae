@@ -7,35 +7,35 @@ global {
 }
 
 subscription {
-  sub1: 'https://66bc03.xfxcloud.click/api/v1/client/subscribe?token=5a81455c3edb4e421280b26b007f5c40'
+  # sub1: 'https://66bc03.xfxcloud.click/api/v1/client/subscribe?token=5a81455c3edb4e421280b26b007f5c40'
   sub2: 'https://66bded.xfxcloud.click/api/v1/client/subscribe?token=5a81455c3edb4e421280b26b007f5c40'
 }
 
 dns {
   upstream {
     googledns: 'tcp+udp://8.8.8.8:53'
-    cfdns: 'udp://1.1.1.1:53'
+    cfdns: 'tcp+udp://1.1.1.1:53'
     trdns: 'udp://180.184.1.1:53'
   }
 
   routing {
-    request {
-      qname(geosite:cn) -> trdns
-      fallback: googledns
-    }
-    response {
-      upstream(googledns) -> accept
-      fallback: accept
-    }
-
     # request {
-    #   fallback: trdns
+    #   qname(geosite:cn) -> trdns
+    #   fallback: googledns
     # }
     # response {
     #   upstream(googledns) -> accept
-    #   ip(geoip:private) && !qname(geosite:cn) -> googledns
     #   fallback: accept
     # }
+
+    request {
+      fallback: trdns
+    }
+    response {
+      upstream(googledns) -> accept
+      ip(geoip:private) && !qname(geosite:cn) -> googledns
+      fallback: accept
+    }
   }
 }
 
@@ -49,8 +49,8 @@ group {
 routing {
   pname(NetworkManager, systemd-resolved, dnsmasq) -> must_direct
 
-  domain(geosite:github) -> proxy
-  dip(20.205.243.166) -> proxy
+  # domain(geosite:github) -> proxy
+  # dip(20.205.243.166) -> proxy
   dip(224.0.0.0/3, 'ff00::/8') -> direct
 
   # l4proto(udp) && dport(443) -> block

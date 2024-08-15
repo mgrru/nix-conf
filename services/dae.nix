@@ -2,7 +2,8 @@
 
 {
   services.dae = {
-    enable = false;
+    enable = true;
     configFile = ./config.dae;
+    openFirewall.enable = true;
   };
 }
