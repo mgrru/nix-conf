@@ -1,5 +1,5 @@
 global {
-  lan_interface: docker0, vboxnet0, enp0s3, lo
+  lan_interface: docker0, vboxnet0, enp0s3
   wan_interface: auto
   log_level: info
   allow_insecure: false
