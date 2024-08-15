@@ -18,7 +18,6 @@
       neofetch
       nixfmt-rfc-style
       nil
-      jdk21_headless
       maven
       nodejs_20
       nodePackages_latest.pnpm
