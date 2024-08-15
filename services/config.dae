@@ -28,7 +28,7 @@ dns {
     }
     response {
       upstream(googledns) -> accept
-      ip(geoip:private) && !qname(geosite:cn) && qname(geosite:github) -> googledns
+      ip(geoip:private) && !qname(geosite:cn) -> googledns
       fallback: accept
     }
   }
@@ -46,9 +46,9 @@ routing {
   pname(NetworkManager) -> direct
   dip(224.0.0.0/3, 'ff00::/8') -> direct
   # domain(geosite:github) -> proxy
-  # dip(20.205.243.166) -> proxy
+  dip(20.205.243.166:22) -> proxy
 
-  l4proto(udp) && dport(443) -> block
+  # l4proto(udp) && dport(443) -> block
   dip(geoip:private) -> direct
   dip(geoip:cn) -> direct
   domain(geosite:cn) -> direct
