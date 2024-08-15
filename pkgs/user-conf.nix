@@ -18,9 +18,9 @@
       neofetch
       nixfmt-rfc-style
       nil
-      nodejs_20
-      nodePackages_latest.pnpm
-      pnpm-shell-completion
+      # nodejs_20
+      # nodePackages_latest.pnpm
+      # pnpm-shell-completion
       rust-bin.stable.latest.default
     ];
   };

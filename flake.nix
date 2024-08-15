@@ -48,7 +48,7 @@
           ./pkgs/global-pkgs.nix
 
           ./programs/bash.nix
-          ./programs/npm.nix
+          # ./programs/npm.nix
           ./programs/editor.nix
           ./programs/git.nix
           # ./programs/java.nix
