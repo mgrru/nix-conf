@@ -18,19 +18,19 @@ dns {
   }
 
   routing {
-   request {
-     qname(geosite:cn) -> trdns
-     fallback: cfdns
-   }
+  #  request {
+  #    qname(geosite:cn) -> trdns
+  #    fallback: cfdns
+  #  }
 
-    # request {
-    #   fallback: trdns
-    # }
-    # response {
-    #   upstream(googledns) -> accept
-    #   ip(geoip:private) && !qname(geosite:cn) -> googledns
-    #   fallback: accept
-    # }
+    request {
+      fallback: googledns
+    }
+    response {
+      upstream(googledns) -> accept
+      ip(geoip:private) && !qname(geosite:cn) -> googledns
+      fallback: accept
+    }
   }
 }
 
