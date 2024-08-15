@@ -12,8 +12,8 @@ subscription {
 
 dns {
   upstream {
-    googledns: 'tcp+udp://dns.google.com:53'
-    cfdns: 'tcp+udp://1.1.1.1:53'
+    googledns: 'udp://8.8.8.8:53'
+    cfdns: 'udp://1.1.1.1:53'
     trdns: 'udp://180.184.1.1:53'
   }
 
