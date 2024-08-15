@@ -4,6 +4,9 @@
   services.dae = {
     enable = true;
     configFile = ./config.dae;
-    openFirewall.enable = true;
+    openFirewall = {
+      enable = true;
+      port = 10880;
+    };
   };
 }

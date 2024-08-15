@@ -4,6 +4,8 @@ global {
   log_level: info
   allow_insecure: false
   auto_config_kernel_parameter: true
+
+  tproxy_port: 10880
 }
 
 subscription {
