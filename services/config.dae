@@ -1,4 +1,5 @@
 global {
+  lan_interface: docker0, vboxnet0
   wan_interface: auto
   log_level: info
   allow_insecure: false
@@ -6,20 +7,10 @@ global {
 
   tcp_check_url: 'https://dns.adguard-dns.com/dns-query,94.140.14.14,2a10:50c0::ad1:ff'
   tcp_check_http_method: HEAD
-
-  udp_check_dns: '180.184.1.1'
-
-  check_interval: 30s
-
-  check_tolerance: 50ms
-
-  dial_mode: domain
-
-  sniffing_timeout: 100ms
 }
 
 subscription {
-  sub1: 'https://66a4d1.xfxcloud.click/api/v1/client/subscribe?token=5a81455c3edb4e421280b26b007f5c40'
+  sub1: 'https://66bc03.xfxcloud.click/api/v1/client/subscribe?token=5a81455c3edb4e421280b26b007f5c40'
 }
 
 dns {
@@ -30,20 +21,19 @@ dns {
   }
 
   routing {
-    request {
-      qname(geosite:cn) -> trdns
-      fallback: googledns
-    }
-
-
 #    request {
+#      qname(geosite:cn) -> trdns
 #      fallback: googledns
 #    }
-#    response {
-#      upstream(googledns) -> accept
-#      ip(geoip:private) && !qname(geosite:cn) -> googledns
-#      fallback: accept
-#    }
+
+    request {
+      fallback: trdns
+    }
+    response {
+      upstream(googledns) -> accept
+      ip(geoip:private) && !qname(geosite:cn) -> googledns
+      fallback: accept
+    }
   }
 }
 

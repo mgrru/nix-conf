@@ -2,7 +2,7 @@
 
 {
   services.dae = {
-    enable = false;
+    enable = true;
     configFile = ./config.dae;
   };
 }
