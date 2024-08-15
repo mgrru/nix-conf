@@ -8,6 +8,7 @@ global {
 
 subscription {
   sub1: 'https://66bc03.xfxcloud.click/api/v1/client/subscribe?token=5a81455c3edb4e421280b26b007f5c40'
+  sub2: 'https://66bded.xfxcloud.click/api/v1/client/subscribe?token=5a81455c3edb4e421280b26b007f5c40'
 }
 
 dns {
@@ -36,7 +37,7 @@ dns {
 
 group {
   proxy {
-    filter: subtag(sub1) && !name(keyword: 'ExpireAt:')
+    filter: subtag(sub2) && !name(keyword: 'ExpireAt:')
     policy: min_moving_avg
   }
 }
