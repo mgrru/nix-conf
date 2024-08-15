@@ -24,11 +24,11 @@ dns {
   #  }
 
     request {
-      fallback: googledns
+      fallback: trdns
     }
     response {
       upstream(googledns) -> accept
-      ip(geoip:private) && !qname(geosite:cn) -> googledns
+      ip(geoip:private) && !qname(geosite:cn) && qname(geosite:github) -> googledns
       fallback: accept
     }
   }
