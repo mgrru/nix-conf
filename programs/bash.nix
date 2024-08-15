@@ -13,8 +13,8 @@
     ll = "ls -alF";
     grep = "grep --color=auto";
     pn = "pnpm";
-    npm = "pnpm";
     nrs = "sudo nixos-rebuild switch --flake .";
+    ndev = "nix develop";
   };
   programs.bash.promptInit = ''
     clear_color="\e[0m"
