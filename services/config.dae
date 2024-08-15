@@ -4,9 +4,6 @@ global {
   log_level: info
   allow_insecure: false
   auto_config_kernel_parameter: true
-
-  tcp_check_url: 'http://cp.cloudflare.com'
-  tcp_check_http_method: HEAD
 }
 
 subscription {
@@ -15,9 +12,9 @@ subscription {
 
 dns {
   upstream {
-    trdns: 'udp://180.184.1.1:53'
     googledns: 'tcp+udp://8.8.8.8:53'
     cfdns: 'tcp+udp://1.1.1.1:53'
+    trdns: 'udp://180.184.1.1:53'
   }
 
   routing {
