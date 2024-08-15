@@ -20,7 +20,7 @@ dns {
   routing {
    request {
      qname(geosite:cn) -> trdns
-     fallback: googledns
+     fallback: cfdns
    }
 
     # request {
