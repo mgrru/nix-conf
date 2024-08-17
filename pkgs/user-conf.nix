@@ -19,6 +19,7 @@
       nixfmt-rfc-style
       nil
       rust-bin.stable.latest.default
+      clang
     ];
   };
 }
