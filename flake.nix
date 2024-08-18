@@ -20,6 +20,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # nixpkgs.url = "nixpkgs/nixpkgs-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs =
     {
@@ -27,6 +29,7 @@
       nixpkgs,
       vscode-server,
       rust-overlay,
+      home-manager,
       ...
     }@inputs:
     {
