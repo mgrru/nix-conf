@@ -74,19 +74,17 @@
               # environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
             }
           )
-          
+
           (
             let
               java_version = 21;
             in
             { pkgs, ... }:
             {
-              nixpkgs.overlays = [
-                (final: prev: rec {
-                  jdk = prev."jdk${toString java_version}";
-                  maven = prev.maven.override { jre = jdk; };
-                })
-              ];
+              nixpkgs.overlays.default = final: prev: rec {
+                jdk = prev."jdk${toString java_version}";
+                maven = prev.maven.override { jre = jdk; };
+              };
             }
           )
 
