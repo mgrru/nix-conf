@@ -4,7 +4,7 @@ let
   java_version = 21;
 in
 {
-  nixpkgs.overlays.default = [
+  nixpkgs.overlays = [
     (final: prev: rec {
       jdk = prev."jdk${toString java_version}";
       maven = prev.maven.override { jre = jdk; };
