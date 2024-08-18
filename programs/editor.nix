@@ -1,13 +1,13 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs = {
     nano.enable = false;
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
-      viAlias = true;
-    };
+    # neovim = {
+    #   enable = true;
+    #   defaultEditor = true;
+    #   vimAlias = true;
+    #   viAlias = true;
+    # };
   };
 }
