@@ -6,9 +6,10 @@
   home.homeDirectory = "/home/ru";
 
   imports = [
-    ./sys-conf/Hyprland/hyprland.nix
-    ./sys-conf/Hyprland/waybar.nix
-    ./sys-conf/Hyprland/wezterm.nix
+    ./sys-conf/hyprland/hyprland.nix
+    ./sys-conf/hyprland/waybar.nix
+    # ./sys-conf/hyprland/wezterm.nix
+    ./sys-conf/hyprland/kitty.nix
   ];
 
   nixpkgs = {
