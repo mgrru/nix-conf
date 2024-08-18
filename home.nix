@@ -33,8 +33,8 @@
     defaultEditor = true;
     vimAlias = true;
     viAlias = true;
-    extraLuaPackages = with pkgs; [ magick ];
-    extraPackages = with pkgs; [ imagemagick ];
+    extraLuaPackages = with pkgs; [ "magick" ];
+    extraPackages = with pkgs; [ "imagemagick" ];
   };
 
   home.stateVersion = "24.11";
