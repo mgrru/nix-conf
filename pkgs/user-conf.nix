@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -12,14 +12,6 @@
     ]; # Enable ‘sudo’ for the user.
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMGDMgOItE9fReXLvuhCawIzjuy2fqTghEJQxINMdkEE ru@fufu.moe"
-    ];
-    packages = with pkgs; [
-      tree
-      neofetch
-      nixfmt-rfc-style
-      nil
-      rust-bin.stable.latest.default
-      clang
     ];
   };
 }
