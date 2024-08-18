@@ -33,7 +33,7 @@
     defaultEditor = true;
     vimAlias = true;
     viAlias = true;
-    extraLuaPackages = with pkgs;[ magick ];
+    extraLuaPackages = ps: [ ps.magick ];
     extraPackages = with pkgs;[ imagemagick ];
   };
 
