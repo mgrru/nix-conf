@@ -76,10 +76,11 @@
           )
 
           (
+
+            { pkgs, ... }:
             let
               java_version = 21;
             in
-            { pkgs, ... }:
             {
               nixpkgs.overlays = [
                 (final: prev: rec {
