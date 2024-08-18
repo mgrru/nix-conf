@@ -42,6 +42,7 @@
           # 这里导入之前我们使用的 configuration.nix，
           # 这样旧的配置文件仍然能生效
           ./sys-conf/configuration.nix
+          ./sys-conf/user-conf.nix
           ./sys-conf/network.nix
 
           ./services/ssh.nix
@@ -49,7 +50,6 @@
           ./services/dae.nix
           # ./services/v2raya.nix
 
-          ./pkgs/user-conf.nix
           ./pkgs/global-pkgs.nix
 
           ./programs/bash.nix
@@ -82,7 +82,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            home-manager.users.ru = import ./home.nix;
+            home-manager.users.ru = import ./home/vbox/home.nix;
 
             # 使用 home-manager.extraSpecialArgs 自定义传递给 ./home.nix 的参数
             # 取消注释下面这一行，就可以在 home.nix 中使用 flake 的所有 inputs 参数了

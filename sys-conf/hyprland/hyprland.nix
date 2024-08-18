@@ -10,7 +10,7 @@
         "wl-paste --type image --watch cliphist store" # Stores only image data
       ];
 
-      "monitor" = ",preferred,auto,1";
+      "monitor" = ",preferred,auto,auto";
 
       "$terminal" = "kitty";
       "$fileManager" = "kitty";
@@ -45,8 +45,8 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        col.active_border = "$sapphire";
-        col.inactive_border = "$base";
+        "col.active_border" = "$sapphire";
+        "col.inactive_border" = "$base";
 
         layout = "dwindle";
 

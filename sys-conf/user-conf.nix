@@ -9,7 +9,7 @@
       "wheel"
       "networkmanager"
       "docker"
-    ]; # Enable ‘sudo’ for the user.
+    ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMGDMgOItE9fReXLvuhCawIzjuy2fqTghEJQxINMdkEE ru@fufu.moe"
     ];
