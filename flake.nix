@@ -74,6 +74,21 @@
               # environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
             }
           )
+          
+          (
+            let
+              java_version = 21;
+            in
+            { pkgs, ... }:
+            {
+              nixpkgs.overlays = [
+                (final: prev: rec {
+                  jdk = prev."jdk${toString java_version}";
+                  maven = prev.maven.override { jre = jdk; };
+                })
+              ];
+            }
+          )
 
           # 将 home-manager 配置为 nixos 的一个 module
           # 这样在 nixos-rebuild switch 时，home-manager 配置也会被自动部署
