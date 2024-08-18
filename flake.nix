@@ -81,10 +81,12 @@
             in
             { pkgs, ... }:
             {
-              nixpkgs.overlays.default = final: prev: rec {
-                jdk = prev."jdk${toString java_version}";
-                maven = prev.maven.override { jre = jdk; };
-              };
+              nixpkgs.overlays = [
+                (final: prev: rec {
+                  jdk = prev."jdk${toString java_version}";
+                  maven = prev.maven.override { jre = jdk; };
+                })
+              ];
             }
           )
 
