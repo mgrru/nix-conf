@@ -49,7 +49,7 @@
   # };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
   # programs.xwayland.enable = true;
   # environment.systemPackages = [
   #   pkgs.wayland-scanner
@@ -77,11 +77,11 @@
   #   sddm
   # ];
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  services.hypridle.enable = true;
+  # programs.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  # };
+  # services.hypridle.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

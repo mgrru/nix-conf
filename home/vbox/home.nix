@@ -7,6 +7,7 @@
 
   imports = [
     # ../../sys-conf/hyprland/hyprland.nix
+    # ../../sys-conf/hyprland/dunst.nix
     # ../../sys-conf/hyprland/waybar.nix
     # ./sys-conf/hyprland/wezterm.nix
     ../../sys-conf/hyprland/kitty.nix
@@ -48,7 +49,8 @@
     nil
     rust-bin.stable.latest.default
     clang
-    wl-clipboard
+    # wl-clipboard
+    xclip
     xorg.xeyes
   ];
 
