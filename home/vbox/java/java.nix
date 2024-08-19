@@ -2,14 +2,11 @@
 
 {
 
-  home.packages = with pkgs; [
-    maven
-    jdk17
-  ];
+  home.packages = with pkgs; [ maven ];
 
   programs.java = {
     enable = true;
-    package = with pkgs; [ jdk17 ];
+    package = pkgs.jdk17;
   };
   # programs.sbt.enable = true;
 
