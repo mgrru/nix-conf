@@ -59,7 +59,7 @@
           # ./programs/npm.nix
           ./programs/editor.nix
           ./programs/git.nix
-          ./programs/java.nix
+          # ./programs/java.nix
 
           (
             { pkgs, ... }:
@@ -69,26 +69,15 @@
             }
           )
 
+          # (import ./overlays)
+
           vscode-server.nixosModules.default
           (
-            { self, trdpkgs, ... }:
-            let
-              java_version = 17;
-              pkgs = import trdpkgs { };
-            in
+            { pkgs, ... }:
             {
-              nixpkgs.overlays.default = [
-                (final: prev: rec {
-                  jdk = prev."jdk${toString java_version}";
-                  maven = prev.maven.override { jre = jdk; };
-                })
-              ];
-
-              users.users.ru.packages = with pkgs; [ maven ];
-
               services.vscode-server = {
                 enable = true;
-                enableFHS = true;
+                # enableFHS = true;
                 extraRuntimeDependencies = with pkgs; [
                   jdk
                   maven
