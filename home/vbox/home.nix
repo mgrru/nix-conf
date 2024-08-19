@@ -44,6 +44,7 @@
     kitty
     glfw
     gtk3
+    nvidia
     tree
     neofetch
     nixfmt-rfc-style
