@@ -12,7 +12,6 @@
     ../../sys-conf/hyprland/kitty.nix
 
     ./java/java.nix
-    "${fetchTarball "https://github.com/msteen/nixos-vscode-server/tarball/master"}/modules/vscode-server/home.nix"
   ];
 
   nixpkgs = {
@@ -39,12 +38,7 @@
   #     xxx
   # '';
 
-  services.vscode-server = {
-    enable = true;
-    enableFHS = true;
-    extraRuntimeDependencies = pkgs: with pkgs; [ jdk21 maven ];
-  };
-  
+
   home.packages = with pkgs; [
     kitty
     gtk3

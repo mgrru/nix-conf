@@ -66,6 +66,21 @@
             }
           )
 
+          vscode-server.nixosModules.default
+          (
+            { config, pkgs, ... }:
+            {
+              services.vscode-server = {
+                enable = true;
+                enableFHS = true;
+                extraRuntimeDependencies =
+                  pkgs: with pkgs; [
+                    jdk21
+                    maven
+                  ];
+              };
+            }
+          )
 
           # 将 home-manager 配置为 nixos 的一个 module
           # 这样在 nixos-rebuild switch 时，home-manager 配置也会被自动部署
