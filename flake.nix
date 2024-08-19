@@ -56,7 +56,7 @@
           # ./programs/npm.nix
           ./programs/editor.nix
           ./programs/git.nix
-          # ./programs/java.nix
+          ./programs/java.nix
 
           (
             { pkgs, ... }:
