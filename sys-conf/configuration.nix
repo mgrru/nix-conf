@@ -51,9 +51,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   # programs.xwayland.enable = true;
-  # environment.systemPackages = [
-  #   pkgs.wayland-scanner
-  # ];
+  environment.systemPackages = [
+    pkgs.xorg.xauth
+  ];
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
