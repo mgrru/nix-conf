@@ -27,7 +27,7 @@
   nix = {
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "dayly";
       options = "--delete-older-than 1w";
     };
     settings.auto-optimise-store = true;

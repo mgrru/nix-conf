@@ -6,8 +6,8 @@
   home.homeDirectory = "/home/ru";
 
   imports = [
-    ../../sys-conf/hyprland/hyprland.nix
-    ../../sys-conf/hyprland/waybar.nix
+    # ../../sys-conf/hyprland/hyprland.nix
+    # ../../sys-conf/hyprland/waybar.nix
     # ./sys-conf/hyprland/wezterm.nix
     ../../sys-conf/hyprland/kitty.nix
 
@@ -48,6 +48,8 @@
     nil
     rust-bin.stable.latest.default
     clang
+    xorg.xvfb
+    xorg.xeyes
   ];
 
   programs.neovim = {
