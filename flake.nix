@@ -61,9 +61,21 @@
           vscode-server.nixosModules.default
           (
             { config, pkgs, ... }:
+            let
+              java_version = 21;
+            in
             {
-              services.vscode-server.enable = true;
-              services.vscode-server.enableFHS = true;
+              nixpkgs.overlays = [
+                (final: prev: {
+                  jdk = prev."jdk${toString java_version}";
+                  # maven = prev.maven.override { jre = jdk; };
+                })
+              ];
+              services.vscode-server = {
+                enable = true;
+                enableFHS = true;
+                extraPackages = with pkgs; [ jdk ];
+              };
             }
           )
 
@@ -75,21 +87,6 @@
             }
           )
 
-          (
-
-            { pkgs, ... }:
-            let
-              java_version = 21;
-            in
-            {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  jdk = prev."jdk${toString java_version}";
-                  # maven = prev.maven.override { jre = jdk; };
-                })
-              ];
-            }
-          )
 
           # 将 home-manager 配置为 nixos 的一个 module
           # 这样在 nixos-rebuild switch 时，home-manager 配置也会被自动部署
