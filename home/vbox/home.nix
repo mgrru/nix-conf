@@ -42,6 +42,7 @@
 
   home.packages = with pkgs; [
     kitty
+    glfw
     gtk3
     tree
     neofetch
