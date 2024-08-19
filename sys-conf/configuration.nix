@@ -77,8 +77,11 @@
   #   sddm
   # ];
 
-  # programs.hyprland.enable = true;
-  # services.hypridle.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+  services.hypridle.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
