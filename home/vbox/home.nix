@@ -48,8 +48,7 @@
     nil
     rust-bin.stable.latest.default
     clang
-    wl-copy
-    wl-parse
+    wl-clipboard
     xorg.xeyes
   ];
 
