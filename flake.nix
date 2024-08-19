@@ -75,7 +75,7 @@
                 enableFHS = true;
                 extraRuntimeDependencies =
                   pkgs: with pkgs; [
-                    jdk21
+                    jdk
                     maven
                   ];
               };
