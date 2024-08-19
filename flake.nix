@@ -77,10 +77,12 @@
               pkgs = import trdpkgs { };
             in
             {
-              nixpkgs.overlays.default = final: prev: rec {
-                jdk = prev."jdk${toString java_version}";
-                maven = prev.maven.override { jre = jdk; };
-              };
+              nixpkgs.overlays.default = [
+                (final: prev: rec {
+                  jdk = prev."jdk${toString java_version}";
+                  maven = prev.maven.override { jre = jdk; };
+                })
+              ];
 
               users.users.ru.packages = with pkgs; [ maven ];
 
