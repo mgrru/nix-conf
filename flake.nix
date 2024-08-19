@@ -19,6 +19,8 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    trdpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
     # nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +32,7 @@
       vscode-server,
       rust-overlay,
       home-manager,
+      trdpkgs,
       ...
     }@inputs:
     {
@@ -68,13 +71,24 @@
 
           vscode-server.nixosModules.default
           (
-            { config, pkgs, ... }:
+            { self, trdpkgs, ... }:
+            let
+              java_version = 17;
+              pkgs = import trdpkgs { };
+            in
             {
+              overlays.default = final: prev: rec {
+                jdk = prev."jdk${toString java_version}";
+                maven = prev.maven.override { jre = jdk; };
+              };
+
+              users.users.ru.packages = with pkgs; [ maven ];
+
               services.vscode-server = {
                 enable = true;
                 enableFHS = true;
                 extraRuntimeDependencies = with pkgs; [
-                  jdk17
+                  jdk
                   maven
                 ];
               };
