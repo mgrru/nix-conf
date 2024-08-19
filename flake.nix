@@ -73,11 +73,10 @@
               services.vscode-server = {
                 enable = true;
                 enableFHS = true;
-                extraRuntimeDependencies =
-                  pkgs: with pkgs;[
-                    jdk
-                    maven
-                  ];
+                extraRuntimeDependencies = with pkgs; [
+                  jdk
+                  maven
+                ];
               };
             }
           )
