@@ -6,7 +6,6 @@
 
   programs.java = {
     enable = true;
-    package = "pkgs.jdk21";
   };
   programs.sbt.enable = true;
 
