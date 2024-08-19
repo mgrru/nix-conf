@@ -58,18 +58,6 @@
           ./programs/git.nix
           # ./programs/java.nix
 
-          vscode-server.nixosModules.default
-          (
-            { config, pkgs, ... }:
-            {
-              services.vscode-server = {
-                enable = true;
-                enableFHS = true;
-                extraPackages = with pkgs; [ jdk ];
-              };
-            }
-          )
-
           (
             { pkgs, ... }:
             {
