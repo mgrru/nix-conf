@@ -61,16 +61,7 @@
           vscode-server.nixosModules.default
           (
             { config, pkgs, ... }:
-            let
-              java_version = 21;
-            in
             {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  jdk = prev."jdk${toString java_version}";
-                  # maven = prev.maven.override { jre = jdk; };
-                })
-              ];
               services.vscode-server = {
                 enable = true;
                 enableFHS = true;
