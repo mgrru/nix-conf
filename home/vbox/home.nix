@@ -48,7 +48,8 @@
     nil
     rust-bin.stable.latest.default
     clang
-    xorg.xvfb
+    wl-copy
+    wl-parse
     xorg.xeyes
   ];
 
