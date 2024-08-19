@@ -77,7 +77,7 @@
               pkgs = import trdpkgs { };
             in
             {
-              overlays.default = final: prev: rec {
+              trdpkgs.overlays.default = final: prev: rec {
                 jdk = prev."jdk${toString java_version}";
                 maven = prev.maven.override { jre = jdk; };
               };
