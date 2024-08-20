@@ -53,7 +53,6 @@
     nil
     rust-bin.stable.latest.default
     rust-analyzer
-    clippy
     clang
     # wl-clipboard
     # xclip
