@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -64,7 +64,8 @@
   environment.systemPackages = with pkgs;[
     xorg.xauth
     wl-clipboard
-    kitty
+    # kitty
+    ueberzugpp
   ];
   # programs.hyprland = {
   #   enable = true;
