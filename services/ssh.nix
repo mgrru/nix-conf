@@ -8,6 +8,9 @@
       PasswordAuthentication = true;
       X11Forwarding = true;
     };
+    extraConfig = ''
+      X11DisplayOffset 10
+    '';
   };
 
   services.sshd.enable = true;
