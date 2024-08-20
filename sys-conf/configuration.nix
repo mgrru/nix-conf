@@ -49,15 +49,15 @@
   # };
 
   hardware.graphics.enable32Bit = true;
-  services = {
-    desktopManager.plasma6.enable = true;
-    displayManager = {
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-      };
-    };
-  };
+  # services = {
+  #   desktopManager.plasma6.enable = true;
+  #   displayManager = {
+  #     sddm = {
+  #       enable = true;
+  #       wayland.enable = true;
+  #     };
+  #   };
+  # };
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
   # programs.xwayland.enable = true;
@@ -65,13 +65,14 @@
     xorg.xauth
     wl-clipboard
     # kitty
+    xclip
     ueberzugpp
   ];
-  # programs.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
-  # };
-  # services.hypridle.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+  services.hypridle.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";

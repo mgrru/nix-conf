@@ -10,7 +10,7 @@
     # ../../sys-conf/hyprland/dunst.nix
     # ../../sys-conf/hyprland/waybar.nix
     # ./sys-conf/hyprland/wezterm.nix
-    ../../sys-conf/hyprland/kitty.nix
+    # ../../sys-conf/hyprland/kitty.nix
 
     ./java/java.nix
   ];
