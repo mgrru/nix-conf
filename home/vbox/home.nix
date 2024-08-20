@@ -51,9 +51,9 @@
     nil
     rust-bin.stable.latest.default
     clang
-    # wl-clipboard
+    wl-clipboard
     xclip
-    xorg.xeyes
+    # xorg.xeyes
   ];
 
   programs.neovim = {
