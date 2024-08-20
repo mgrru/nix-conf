@@ -45,6 +45,7 @@
     glfw
     gtk3
     mesa
+    mesa-utils
     tree
     neofetch
     nixfmt-rfc-style
@@ -53,6 +54,7 @@
     clang
     wl-clipboard
     xclip
+    xauth
     # xorg.xeyes
   ];
 
