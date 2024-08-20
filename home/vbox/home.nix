@@ -60,7 +60,15 @@
     # xorg.xeyes
   ];
 
-  programs.tmux.enable = true;
+  programs.tmux={
+    enable = true;
+    terminal = "screen-256color";
+    mouse = true;
+    keyMode = "vi";
+    extraConfig = ''
+      set -gq allow-passthrough on
+    '';
+  };
 
   programs.neovim = {
     enable = true;
