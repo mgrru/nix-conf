@@ -48,17 +48,29 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
+  hardware.graphics.enable32Bit = true;
+  services = {
+    desktopManager.plasma6.enable = true;
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
+    };
+  };
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
   # programs.xwayland.enable = true;
-  # environment.systemPackages = [
-  #   pkgs.xorg.xauth
-  # ];
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  services.hypridle.enable = true;
+  environment.systemPackages = with pkgs;[
+    xorg.xauth
+    wl-clipboard
+    kitty
+  ];
+  # programs.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  # };
+  # services.hypridle.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";

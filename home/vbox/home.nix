@@ -41,20 +41,21 @@
 
 
   home.packages = with pkgs; [
-    kitty
-    glfw
-    gtk3
-    mesa
-    mesa-utils
+    # kitty
+    # glfw
+    # gtk3
+    # mesa
+    # mesa-utils
+    # glxgears
     tree
     neofetch
     nixfmt-rfc-style
     nil
     rust-bin.stable.latest.default
     clang
-    wl-clipboard
-    xclip
-    xauth
+    # wl-clipboard
+    # xclip
+    xorg.xauth
     # xorg.xeyes
   ];
 
