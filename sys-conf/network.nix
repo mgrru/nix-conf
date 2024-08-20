@@ -5,8 +5,8 @@
     hostName = "rnix"; # Define your hostname.
     networkmanager.enable = true;
     firewall = {
-      allowedTCPPorts = [ 22 443 ];
-      allowedUDPPorts = [ 22 443 ];
+      allowedTCPPorts = [ 22 443 6000 ];
+      allowedUDPPorts = [ 22 443 6000 ];
     };
   };
   # Pick only one of the below networking options.
