@@ -66,7 +66,7 @@
     wl-clipboard
     # kitty
     xclip
-    ueberzugpp
+    # ueberzugpp
   ];
   programs.hyprland = {
     enable = true;
