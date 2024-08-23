@@ -13,7 +13,7 @@
     ../../sys-conf/hyprland/kitty.nix
 
     ./java/java.nix
-    ./bash/bash.nixr
+    ./bash/bash.nix
     ./npm/npm.nix
     ./yazi/yazi.nix
     ./nu/nu.nix
