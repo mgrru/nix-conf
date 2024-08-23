@@ -9,8 +9,8 @@
         enabled = false;
       };
     };
-    flavors = {
-      bar = pkgs.bar;
-    };
+    # flavors = {
+    #   bar = pkgs.bar;
+    # };
   };
 }
