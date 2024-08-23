@@ -6,12 +6,8 @@ $env.EDITOR = 'nvim'
 alias ll = ls -l
 alias la = ls -a
 
-def greet [...name: string] {
-  let res = "hello ";
-  for $i in $name {
-    $"($res) ($i)"
-  }
-  print $res
+def greet [name = 'ru', ...ex] {
+  $"hello ($name) ($ex)"
 }
 
 def gnrs [msg: string] {
