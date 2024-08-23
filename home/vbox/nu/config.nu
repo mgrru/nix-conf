@@ -1,7 +1,7 @@
 $env.config = {
     # main configuration
 }
-$env.EDITOR = nvim
+$env.EDITOR = 'nvim'
 
 alias ll = ls -l
 alias la = ls -a
