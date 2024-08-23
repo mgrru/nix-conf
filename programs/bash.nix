@@ -1,6 +1,7 @@
 { ... }:
 
 {
+  programs.bash.enable = false;
   programs.bash.shellInit = ''
     # rust代理
     export RUSTUP_DIST_SERVER="https://rsproxy.cn"
