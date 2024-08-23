@@ -1,10 +1,11 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ru = {
     isNormalUser = true;
     description = "ru";
+    shell = pkgs.nushell;
     extraGroups = [
       "wheel"
       "networkmanager"

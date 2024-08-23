@@ -10,6 +10,7 @@
     };
     extraConfig = ''
       X11DisplayOffset 10
+      X11UseLocalhost yes
     '';
   };
 

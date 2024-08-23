@@ -13,6 +13,10 @@
     ../../sys-conf/hyprland/kitty.nix
 
     ./java/java.nix
+    ./bash/bash.nixr
+    ./npm/npm.nix
+    ./yazi/yazi.nix
+    ./nu/nu.nix
   ];
 
   nixpkgs = {
