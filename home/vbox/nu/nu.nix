@@ -3,6 +3,9 @@
 {
   programs.nushell = {
     enable = true;
+    configFile.source = ./config.nu;
+    envFile.source = ./nushell/env.nu;
+    loginFile.source = ./nushell/login.nu;
   };
   # home.file = {
   #   ".config/nushell/git" = {
@@ -22,10 +25,14 @@
   #     target = ".config/nushell/config.nu";
   #   };
   # };
-  home.file.".config/nushell" = {
-    source = ./nushell;
+  home.file.".config/nushell/git" = {
+    source = ./nushell/git;
     recursive = true;
-    executable = true;
+  };
+
+  home.file.".config/nushell/pnpm" = {
+    source = ./nushell/pnpm;
+    recursive = true;
   };
   # home.file.".config/nushell/login.nu".source = ./login.nu;
   # home.file.".config/nushell/env.nu".source = ./env.nu;
