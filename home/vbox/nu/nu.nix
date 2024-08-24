@@ -7,16 +7,19 @@
   home.file = {
     ".config/nushell/git" = {
       source = ./git;
-      target = "";
+      target = ".config/nushell/git";
     };
     ".config/nushell/login.nu" = {
       source = ./login.nu;
+      target = ".config/nushell/login.nu";
     };
     ".config/nushell/env.nu" = {
       source = ./env.nu;
+      target = ".config/nushell/env.nu";
     };
     ".config/nushell/config.nu" = {
       source = ./config.nu;
+      target = ".config/nushell/config.nu";
     };
   };
   # home.file.".config/nushell/git" = {
