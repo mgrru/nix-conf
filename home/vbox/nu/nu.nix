@@ -5,11 +5,22 @@
     enable = true;
   };
   home.file = {
-    ".config/nushell/git".source = ./git;
-    ".config/nushell/login.nu".source = ./login.nu;
-    ".config/nushell/env.nu".source = ./env.nu;
-    ".config/nushell/config.nu".source = ./config.nu;
+    ".config/nushell/git" = {
+      source = ./git;
+    };
+    ".config/nushell/login.nu" = {
+      source = ./login.nu;
+    };
+    ".config/nushell/env.nu" = {
+      source = ./env.nu;
+    };
+    ".config/nushell/config.nu" = {
+      source = ./config.nu;
+    };
   };
+  # home.file.".config/nushell/git" = {
+  #   source = ./git;
+  # };
   # home.file.".ssh" = {
   #   source = ./.ssh;
   #   # recursive = true;   # 递归整个文件夹
