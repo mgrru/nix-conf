@@ -22,10 +22,10 @@
   #     target = ".config/nushell/config.nu";
   #   };
   # };
-  home.file.".config/nushell/git".source = ./git;
-  home.file.".config/nushell/login.nu".source = ./login.nu;
-  home.file.".config/nushell/env.nu".source = ./env.nu;
-  home.file.".config/nushell/config.nu".source = ./config.nu;
+  home.file.".config/nushell/".source = ./nushell;
+  # home.file.".config/nushell/login.nu".source = ./login.nu;
+  # home.file.".config/nushell/env.nu".source = ./env.nu;
+  # home.file.".config/nushell/config.nu".source = ./config.nu;
   # home.file.".config/nushell/git" = {
   #   source = ./git;
   # };
@@ -35,7 +35,7 @@
   #   # executable = true;  # 将其中所有文件添加「执行」权限
   # };
 
-  programs.eza.enableNushellIntegration = true;
+  # programs.eza.enableNushellIntegration = true;
   programs.yazi.enableNushellIntegration = true;
   programs.oh-my-posh.enableNushellIntegration = false;
 }

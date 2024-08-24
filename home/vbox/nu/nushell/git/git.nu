@@ -12,24 +12,20 @@
 #		 let left = create_left_prompt
 #		 basic-git-left-prompt $left
 # }
-
 def in_git_repo [] {
-  let e = git branch --show-current e>| ignore | lines | is-empty
-  # (do { git branch --show-current e>| ignore } | is-empty) == false
-  return (e == false)
+  let res = (do { git branch --show-current o+e>| ignore } | lines) != ""
+  $res
 }
 
 export def basic-git-left-prompt [in_left_prompt] {
-
-  # if we're in a repo, let's go!
-  let currently_in_git_repo = in_git_repo
+  mut currently_in_git_repo = in_git_repo
 
   if $currently_in_git_repo {
     # get the branch info first
     let branch_info = git branch -l
       | lines
       | filter {|e| $e | str contains "*" }
-      | each {|e| $e | str replace "* " "="}
+      | each {|e| $e | str replace "* " ""}
       | get 0
     let git_status = git status -s
 

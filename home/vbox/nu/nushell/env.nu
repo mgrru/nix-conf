@@ -1,5 +1,5 @@
 
-use git/git.nu basic-git-left-prompt
+use git *
 
 def create_left_prompt [] {
     let dir = match (do --ignore-shell-errors { $env.PWD | path relative-to $nu.home-path }) {
@@ -25,7 +25,7 @@ def create_left_prompt [] {
     let r_user = $user_segment
     let r_host = $host_segment
 
-    $"[($r_user)@($r_host)  ($r_path)]"
+    $"[ ($r_path)][($r_user)@($r_host)]"
 }
 
 def create_right_prompt [] {
@@ -33,7 +33,7 @@ def create_right_prompt [] {
     let time_segment = ([
         (ansi reset)
         (ansi magenta)
-        (date now | format date '%x %X') # try to respect user's locale
+        (date now | format date '%X') # try to respect user's locale
     ] | str join | str replace --regex --all "([/:])" $"(ansi green)${1}(ansi magenta)" |
         str replace --regex --all "([AP]M)" $"(ansi magenta_underline)${1}")
 
