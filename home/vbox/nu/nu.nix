@@ -22,7 +22,7 @@
   #     target = ".config/nushell/config.nu";
   #   };
   # };
-  home.file.".config/nushell/".source = ./nushell;
+  home.file.".config/nushell".source = ./nushell;
   # home.file.".config/nushell/login.nu".source = ./login.nu;
   # home.file.".config/nushell/env.nu".source = ./env.nu;
   # home.file.".config/nushell/config.nu".source = ./config.nu;

@@ -4,7 +4,7 @@ $env.config = {
   render_right_prompt_on_last_line: true,
 }
   
-use pnpm/ *
+use pnpm *
 
 alias ll = ls -l
 alias la = ls -a
