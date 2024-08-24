@@ -3,7 +3,7 @@
 {
   programs.nushell = {
     enable = true;
-    configFile.source = ./config.nu;
+    configFile.source = ./nushell/config.nu;
     envFile.source = ./nushell/env.nu;
     loginFile.source = ./nushell/login.nu;
   };
