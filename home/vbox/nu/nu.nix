@@ -25,6 +25,7 @@
   home.file.".config/nushell" = {
     source = ./nushell;
     recursive = true;
+    executable = true;
   };
   # home.file.".config/nushell/login.nu".source = ./login.nu;
   # home.file.".config/nushell/env.nu".source = ./env.nu;
