@@ -3,12 +3,12 @@
 {
   programs.nushell = {
     enable = true;
-    configFile.source = ./config.nu;
-    envFile.source = ./env.nu;
-    loginFile.source = ./login.nu;
   };
-  home.file.".config/nushell/git" = {
-    source = ./git;
+  home.file = {
+    ".config/nushell/git".source = ./git;
+    ".config/nushell/login.nu".source = ./login.nu;
+    ".config/nushell/env.nu".source = ./env.nu;
+    ".config/nushell/config.nu".source = ./config.nu;
   };
   # home.file.".ssh" = {
   #   source = ./.ssh;
