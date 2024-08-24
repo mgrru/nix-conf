@@ -9,7 +9,6 @@
   };
   home.file.".config/nushell/git" = {
     source = ./git;
-    recursive = true;
   };
   # home.file.".ssh" = {
   #   source = ./.ssh;

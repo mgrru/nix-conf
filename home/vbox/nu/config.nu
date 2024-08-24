@@ -9,8 +9,9 @@ alias la = ls -a
 
 # sudo nixos-rebuild switch 不带默认git信息
 def nrs [msg: string, path_or_both: string = ., host?: string] {
-  git add .
-  git commit -m $msg
+  if (git add . | lines | is-empty) == false {
+    git commit -m $msg
+  }
   if $host == null {
     sudo nixos-rebuild switch --flake $"($path_or_both)"
   } else {
@@ -20,8 +21,9 @@ def nrs [msg: string, path_or_both: string = ., host?: string] {
 
 # sudo nixos-rebuild switch 带默认git信息
 def gnrs [msg: string = "upd", path_or_both: string = ., host?: string] {
-  git add .
-  git commit -m $msg
+  if (git add . | lines | is-empty) == false {
+    git commit -m $msg
+  }
 
   if $host == null {
     sudo nixos-rebuild switch --flake $"($path_or_both)"
