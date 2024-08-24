@@ -1,7 +1,8 @@
 $env.config = {
-    # main configuration
+  # main configuration
+  show_banner: false,
+  render_right_prompt_on_last_line: true,
 }
-$env.EDITOR = 'nvim'
 
 alias ll = ls -l
 alias la = ls -a
