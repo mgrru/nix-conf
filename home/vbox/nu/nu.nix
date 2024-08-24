@@ -7,6 +7,7 @@
   home.file = {
     ".config/nushell/git" = {
       source = ./git;
+      target = "";
     };
     ".config/nushell/login.nu" = {
       source = ./login.nu;
